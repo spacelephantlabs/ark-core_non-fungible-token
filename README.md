@@ -76,7 +76,7 @@ You can run `curl 127.0.0.1:4003/api/v2/wallets/${owner_address}` to manually ch
 
 _Note: you can omit the `--id` or `--unikname` flag, command will generate an id for you._
 
-#### Transfer a token :
+#### Transfer a token (change ownership):
 
 _⚠️ work in progress_
 
@@ -92,7 +92,7 @@ The command ends successfully after checking if the new token owner is the given
 You can run `curl 127.0.0.1:4003/api/v2/wallets/${owner_address}` to manually check if the wallet is **not** the owner of the given token.
 You can run `curl 127.0.0.1:4003/api/v2/wallets/${recipient_address}` to manually check if the wallet is **the new** owner of the given token.
 
-#### Update a token:
+#### Update properties of a token:
 
 _Coming soon_
 
@@ -118,10 +118,11 @@ rm -rf ~/.local/state/ark-core/testnet && rm -rf ~/.local/share/ark-core/testnet
 
 ## TODOs
 
+-   [ ] Implement properties.
+-   [ ] Implement a way to revert `update` transactions.
+-   [ ] Estimate and set default fees amounts.
 -   [x] fix double transaction execution (in the pool **and** in the block processor). The branch `debug/nft` trace execution to visualize the bug.
--   [doing] persist in database. Currently, when you restart node, all tokens are erased.
--   [ ] implement a way to revert `update` transactions.
--   ~[x] update token id to `Buffer` to fit with specifications~ abandoned, the AIP70 must be updated, `Buffer` type is irrelevant to be used as token identifier
--   [ ] estimate and set default fees amount.
--   [x] rename `/nft` API to `/nfts`
--   [x] fix old tests.
+-   [x] Persist in database. Currently, when you restart node, all tokens are erased.
+-   [x] ~update token id to `Buffer` to fit with specifications~ abandoned, the AIP70 must be updated, `Buffer` type is irrelevant to be used as token identifier
+-   [x] Rename `/nft` API to `/nfts`
+-   [x] Fix old tests.
